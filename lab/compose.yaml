@@ -1,0 +1,72 @@
+name: container-threat-detection-lab
+
+services:
+  allowed-api:
+    build: ./http-service
+    environment:
+      SERVICE_NAME: allowed-api
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - lab
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=2).read()"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 3s
+
+  lab-sink:
+    build: ./http-service
+    environment:
+      SERVICE_NAME: lab-sink
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - lab
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=2).read()"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 3s
+
+  orders-api:
+    build:
+      context: .
+      dockerfile: orders-api/Dockerfile
+    environment:
+      SERVICE_NAME: orders-api
+    depends_on:
+      allowed-api:
+        condition: service_healthy
+    volumes:
+      - type: bind
+        source: ./demo-secrets/credentials-demo.json
+        target: /run/demo-secrets/credentials-demo.json
+        read_only: true
+        bind:
+          create_host_path: false
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - lab
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=2).read()"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 3s
+
+networks:
+  lab:
+    internal: true

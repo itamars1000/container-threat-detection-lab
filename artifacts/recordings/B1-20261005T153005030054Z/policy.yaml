@@ -1,0 +1,39 @@
+# Baseline learning policy for the future detector; not currently enforced.
+# Expected endpoints apply only within monitored_containers.
+# A matching endpoint is expected, not proof of authorization or harmless content.
+schema_version: 1
+policy_version: baseline-2
+status: draft_not_enforced
+environment_binding:
+  snapshot: artifacts/environment.json
+  captured_at: '2026-10-05T10:34:09.221+00:00'
+  network: container-threat-detection-lab_lab
+  refresh_required_on_container_or_endpoint_change: true
+monitored_containers:
+- service: orders-api
+  container_full_id: 1090c53f54e0b8c1f7c4a1b730765c18b6e21f6b5e726f0c4b9341b3f7592afc
+sensitive_files:
+- /run/demo-secrets/credentials-demo.json
+expected_destinations:
+- service: allowed-api
+  container_full_id: 3e809eafbbf33225bee50097a420e907a015966268fc8488c981a214c7ecc1f8
+  ip: 172.18.0.2
+  port: 8080
+  protocol: tcp
+  reason: Expected application dependency.
+- service: orders-api-self
+  container_full_id: 1090c53f54e0b8c1f7c4a1b730765c18b6e21f6b5e726f0c4b9341b3f7592afc
+  ip: 127.0.0.1
+  port: 8080
+  protocol: tcp
+  reason: The configured orders-api healthcheck connects to its own HTTP server. Endpoint expectation
+    applies to any process in the monitored container; it does not authenticate the caller or prove a
+    /health request.
+correlation:
+  lookback_seconds: 60
+  require_positive_time_delta: true
+  require_same_sensor_run: true
+  require_same_host: true
+  require_same_container_full_id: true
+  require_same_pid: false
+exceptions: []

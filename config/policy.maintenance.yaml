@@ -1,0 +1,52 @@
+# Evaluation policy: exact-pair exception. Baseline remains unchanged.
+# Command/UID matching is not proof of authorization and can be imitated.
+schema_version: 1
+policy_version: maintenance-1
+status: draft_not_enforced
+environment_binding:
+  snapshot: artifacts/environment.json
+  captured_at: '2026-10-05T10:34:09.221+00:00'
+  network: container-threat-detection-lab_lab
+  refresh_required_on_container_or_endpoint_change: true
+monitored_containers:
+- service: orders-api
+  container_full_id: 1090c53f54e0b8c1f7c4a1b730765c18b6e21f6b5e726f0c4b9341b3f7592afc
+- service: allowed-api
+  container_full_id: 3e809eafbbf33225bee50097a420e907a015966268fc8488c981a214c7ecc1f8
+sensitive_files:
+- /run/demo-secrets/credentials-demo.json
+expected_destinations:
+- service: allowed-api
+  container_full_id: 3e809eafbbf33225bee50097a420e907a015966268fc8488c981a214c7ecc1f8
+  ip: 172.18.0.2
+  port: 8080
+  protocol: tcp
+  reason: Expected application dependency.
+- service: orders-api-self
+  container_full_id: 1090c53f54e0b8c1f7c4a1b730765c18b6e21f6b5e726f0c4b9341b3f7592afc
+  ip: 127.0.0.1
+  port: 8080
+  protocol: tcp
+  reason: The configured orders-api healthcheck connects to its own HTTP server. Endpoint expectation
+    applies to any process in the monitored container; it does not authenticate the caller or prove a
+    /health request.
+correlation:
+  lookback_seconds: 60
+  require_positive_time_delta: true
+  require_same_sensor_run: true
+  require_same_host: true
+  require_same_container_full_id: true
+  require_same_pid: false
+exceptions:
+- id: demo-maintenance-pair
+  container_full_id: 1090c53f54e0b8c1f7c4a1b730765c18b6e21f6b5e726f0c4b9341b3f7592afc
+  uid: 10001
+  file_path: /run/demo-secrets/credentials-demo.json
+  file_command: python - maintenance-demo
+  network_command: python - maintenance-demo
+  destination:
+    ip: 172.18.0.3
+    port: 8080
+    protocol: tcp
+  reason: The controlled maintenance exercise is explicitly designated authorized; preserve evidence and
+    record the matching pair.

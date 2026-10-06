@@ -1,0 +1,37 @@
+# Collection rules lab-2; monitored IDs copied from baseline-3.
+# Refresh rules and policy after container changes.
+- list: lab_monitored_container_ids
+  items:
+  - 1090c53f54e0
+  - 3e809eafbbf3
+- list: lab_sensitive_files
+  items:
+  - /run/demo-secrets/credentials-demo.json
+- macro: lab_monitored_container
+  condition: container.id != host and container.id in (lab_monitored_container_ids)
+- rule: Lab sensitive file opened for reading
+  desc: Collect successful read-capable opens of the configured demo file in the monitored container. Not proof
+    that bytes were read.
+  condition: evt.type in (open, openat, openat2) and evt.is_open_read=true and fd.num>=0 and fd.name in (lab_sensitive_files)
+    and lab_monitored_container
+  output: Sensitive file open | rules_version=lab-2 event_ns=%evt.rawtime evt_type=%evt.type evt_res=%evt.res raw_result=%evt.rawres
+    file=%fd.name process=%proc.name command=%proc.cmdline parent=%proc.pname pid=%proc.pid uid=%user.uid container_id=%container.id
+    container_full_id=%container.full_id container_name=%container.name
+  priority: NOTICE
+  tags:
+  - lab
+  - filesystem
+  - candidate
+- rule: Lab monitored outbound TCP connect attempt
+  desc: Collect TCP connect attempts from the monitored container, including expected/private/loopback destinations
+    and non-success results. Not proof of completed traffic or exfiltration.
+  condition: evt.type=connect and fd.l4proto=tcp and lab_monitored_container
+  output: TCP connect attempt | rules_version=lab-2 event_ns=%evt.rawtime evt_type=%evt.type evt_res=%evt.res raw_result=%evt.rawres
+    client_ip=%fd.cip client_port=%fd.cport server_ip=%fd.sip server_port=%fd.sport protocol=%fd.l4proto process=%proc.name
+    command=%proc.cmdline parent=%proc.pname pid=%proc.pid uid=%user.uid container_id=%container.id container_full_id=%container.full_id
+    container_name=%container.name
+  priority: NOTICE
+  tags:
+  - lab
+  - network
+  - candidate

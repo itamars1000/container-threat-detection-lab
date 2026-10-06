@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-05T15:46:44.645+00:00",
+  "kernel": "6.6.87.2-microsoft-standard-WSL2",
+  "containers": [
+    {
+      "service": "allowed-api",
+      "container_id": "3e809eafbbf33225bee50097a420e907a015966268fc8488c981a214c7ecc1f8",
+      "hostname": "3e809eafbbf3",
+      "image_id": "sha256:eb73489b30fcecaeaa2e495990fa86f5df383a82a5c04a251ac5da4cb95476e8",
+      "running": true,
+      "health": "healthy",
+      "networks": {
+        "container-threat-detection-lab_lab": {
+          "ipv4": "172.18.0.2"
+        }
+      },
+      "mounts": []
+    },
+    {
+      "service": "lab-sink",
+      "container_id": "4b80fce79e0764eefba6c54dc45642967d41fa30f5521210dc6d076cc952e0b7",
+      "hostname": "4b80fce79e07",
+      "image_id": "sha256:55dd2e91bef1c752db5298915ddf825ab778cbe9249e5797437d051692ee81d2",
+      "running": true,
+      "health": "healthy",
+      "networks": {
+        "container-threat-detection-lab_lab": {
+          "ipv4": "172.18.0.3"
+        }
+      },
+      "mounts": []
+    },
+    {
+      "service": "orders-api",
+      "container_id": "1090c53f54e0b8c1f7c4a1b730765c18b6e21f6b5e726f0c4b9341b3f7592afc",
+      "hostname": "1090c53f54e0",
+      "image_id": "sha256:80a7642853e675d2e0be59dd02c7f12a87254fa94ea2863764fbda60b522af28",
+      "running": true,
+      "health": "healthy",
+      "networks": {
+        "container-threat-detection-lab_lab": {
+          "ipv4": "172.18.0.4"
+        }
+      },
+      "mounts": [
+        {
+          "source": "/home/itamar/projects/container-threat-detection-lab/lab/demo-secrets/credentials-demo.json",
+          "destination": "/run/demo-secrets/credentials-demo.json",
+          "read_only": true
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "expected_services_present": true,
+    "all_running_healthy": true,
+    "credential_mount_only_orders_api": true,
+    "credential_mount_read_only": true
+  },
+  "valid": true
+}

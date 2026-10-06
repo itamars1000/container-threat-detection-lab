@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "scenario_id": "S2",
+  "description": "Controlled file read followed by lab-sink connection after 75 seconds in the same container.",
+  "action": "delayed_connection",
+  "delay_seconds": 75,
+  "target": "lab-sink",
+  "expected_incident_count": 0,
+  "expected_file_signal": true,
+  "expected_network_signal": true,
+  "origin": "controlled_live_lab",
+  "sends_credential_content": false,
+  "known_detection_limitation": "Unexpected connection occurs outside the baseline 60-second lookback; zero combined incidents is an expected coverage miss, not benign activity."
+}

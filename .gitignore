@@ -1,0 +1,33 @@
+# Python / local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+# Editors / operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+# Local credentials; the explicitly fake demo JSON remains included.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Scratch work and historical local archive
+/work/
+# Regenerated replay reports
+/artifacts/reports/
+# Continuous sensor captures; selected evidence examples remain versioned.
+/artifacts/falco-project/events.jsonl
+/artifacts/falco-project/metrics.jsonl
+/artifacts/falco-preflight/events.jsonl
+/artifacts/falco-preflight/metrics.jsonl
+# New live environment snapshots
+/artifacts/environment.live.json
+# Local runtime policy copies
+/config/*.local.yaml
+/falco/*.local.yaml

@@ -1,0 +1,29 @@
+{
+  "captured_at": "2026-10-05T11:14:29.206423+00:00",
+  "scope": "One normal demo in a short low-load observation window; not a stress or accuracy benchmark.",
+  "before": {
+    "evt.time": 1791198864066072000,
+    "falco.start_ts": 1791198808823562753,
+    "falco.reload_ts": 1791198808825715000,
+    "scap.n_evts": 102452,
+    "scap.n_drops": 0,
+    "falco.outputs_queue_num_drops": 0
+  },
+  "after": {
+    "evt.time": 1791198869122305000,
+    "falco.start_ts": 1791198808823562753,
+    "falco.reload_ts": 1791198808825715000,
+    "scap.n_evts": 120583,
+    "scap.n_drops": 0,
+    "falco.outputs_queue_num_drops": 0
+  },
+  "checks": {
+    "same_sensor_start": true,
+    "events_processed": true,
+    "no_kernel_drops_in_window": true,
+    "no_output_queue_drops_in_window": true,
+    "expected_pair_received": true,
+    "pair_from_orders_api": true
+  },
+  "valid": true
+}

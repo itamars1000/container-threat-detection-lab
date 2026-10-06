@@ -1,0 +1,88 @@
+{
+  "scope": "Three live controls; collection verification and manual ground truth, not detector evaluation.",
+  "results": [
+    {
+      "scenario": "B4",
+      "recording": "B4-20261005T155653883131Z",
+      "status": "complete",
+      "expected_incidents": 0,
+      "detector_result": "not_implemented",
+      "signal_summary": [
+        {
+          "type": "connect",
+          "pid": 171864,
+          "container_id": "1090c53f54e0b8c1f7c4a1b730765c18b6e21f6b5e726f0c4b9341b3f7592afc",
+          "event_ns": 1791215811659184664,
+          "destination": "172.18.0.3",
+          "result": "EINPROGRESS"
+        }
+      ],
+      "network_minus_file_seconds": [],
+      "all_collection_checks_passed": true,
+      "hashes_verified": true,
+      "target_request_logged": true
+    },
+    {
+      "scenario": "S3",
+      "recording": "S3-20261005T155700716422Z",
+      "status": "complete",
+      "expected_incidents": 1,
+      "detector_result": "not_implemented",
+      "signal_summary": [
+        {
+          "type": "openat",
+          "pid": 172250,
+          "container_id": "1090c53f54e0b8c1f7c4a1b730765c18b6e21f6b5e726f0c4b9341b3f7592afc",
+          "event_ns": 1791215821447923666,
+          "destination": null,
+          "result": "SUCCESS"
+        },
+        {
+          "type": "connect",
+          "pid": 172305,
+          "container_id": "1090c53f54e0b8c1f7c4a1b730765c18b6e21f6b5e726f0c4b9341b3f7592afc",
+          "event_ns": 1791215821826516388,
+          "destination": "172.18.0.3",
+          "result": "EINPROGRESS"
+        }
+      ],
+      "network_minus_file_seconds": [
+        0.378592722
+      ],
+      "all_collection_checks_passed": true,
+      "hashes_verified": true,
+      "target_request_logged": true
+    },
+    {
+      "scenario": "B5",
+      "recording": "B5-20261005T155710599855Z",
+      "status": "complete",
+      "expected_incidents": 0,
+      "detector_result": "not_implemented",
+      "signal_summary": [
+        {
+          "type": "connect",
+          "pid": 172692,
+          "container_id": "1090c53f54e0b8c1f7c4a1b730765c18b6e21f6b5e726f0c4b9341b3f7592afc",
+          "event_ns": 1791215831570395895,
+          "destination": "172.18.0.3",
+          "result": "EINPROGRESS"
+        },
+        {
+          "type": "openat",
+          "pid": 172746,
+          "container_id": "1090c53f54e0b8c1f7c4a1b730765c18b6e21f6b5e726f0c4b9341b3f7592afc",
+          "event_ns": 1791215831908385508,
+          "destination": null,
+          "result": "SUCCESS"
+        }
+      ],
+      "network_minus_file_seconds": [
+        -0.337989613
+      ],
+      "all_collection_checks_passed": true,
+      "hashes_verified": true,
+      "target_request_logged": true
+    }
+  ]
+}

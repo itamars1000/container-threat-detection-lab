@@ -1,0 +1,43 @@
+name: container-threat-detection-sensor
+
+services:
+  falco:
+    image: falcosecurity/falco:0.45.0@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6
+    entrypoint: ["falco"]
+    privileged: true
+    network_mode: none
+    command:
+      - -r
+      - /etc/falco/lab-rules.yaml
+      - -o
+      - engine.kind=modern_ebpf
+      - -o
+      - json_output=true
+      - -o
+      - stdout_output.enabled=true
+      - -o
+      - file_output.enabled=true
+      - -o
+      - file_output.filename=/captures/events.jsonl
+      - -o
+      - metrics.enabled=true
+      - -o
+      - metrics.interval=5s
+      - -o
+      - metrics.output_rule=false
+      - -o
+      - metrics.output_file=/captures/metrics.jsonl
+      - -o
+      - metrics.kernel_event_counters_enabled=true
+      - -o
+      - metrics.include_empty_values=true
+      - -o
+      - metrics.libbpf_stats_enabled=false
+      - -U
+    volumes:
+      - /sys/kernel/tracing:/sys/kernel/tracing:ro
+      - /var/run/docker.sock:/host/var/run/docker.sock:ro
+      - /proc:/host/proc:ro
+      - /etc:/host/etc:ro
+      - ./rules.yaml:/etc/falco/lab-rules.yaml:ro
+      - ../artifacts/falco-project:/captures

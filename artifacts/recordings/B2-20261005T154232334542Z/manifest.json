@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "recording_id": "B2-20261005T154232334542Z",
+  "created_at": "2026-10-05T15:42:32.335221+00:00",
+  "status": "complete",
+  "sensor_before": {
+    "container_id": "92b6780f74278070024eb3c1d5342452561cb6fa5ccfc97bfbcd8c26ff75e43c",
+    "started_at": "2026-10-05T15:23:08.564547719Z"
+  },
+  "limitations": [
+    "One short low-load recording; not a stress or accuracy benchmark.",
+    "File-open and connect events do not prove exfiltration.",
+    "Ground truth is stored separately from detector input.",
+    "Run this exercise alone; overlapping manual demos can contaminate attribution."
+  ],
+  "policy_version": "baseline-2",
+  "rules_sha256": "ef25dc9fc2345c4cf858c61045b25d511be109a32aeb8b93cfcfb70a603f259a",
+  "policy_sha256": "22e8ee2a47fe0c14d68b484e0e86f941f7ce9e4bbb970ec994d0d367c62ba490",
+  "action_started_at": "2026-10-05T15:42:33.830798+00:00",
+  "action_finished_at": "2026-10-05T15:42:34.072409+00:00",
+  "action_source_sha256": "a24bac2fca7ffb67ced7405820ee8c1c7834cfb56323cd1a14b66d6a9a6e07de",
+  "sensor_after": {
+    "container_id": "92b6780f74278070024eb3c1d5342452561cb6fa5ccfc97bfbcd8c26ff75e43c",
+    "started_at": "2026-10-05T15:23:08.564547719Z"
+  },
+  "sensor_run_id": "1791213788758821238",
+  "host_boot_ts": 1791177655000000000,
+  "sensor_hostname": "92b6780f7427",
+  "event_byte_range": [
+    536332,
+    541363
+  ],
+  "completed_at": "2026-10-05T15:42:39.968779+00:00",
+  "events_sha256": "841755e9d17584b64ce3da415114493f4fd184ebb142ef4f98fc9f06b8520952"
+}

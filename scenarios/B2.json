@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "scenario_id": "B2",
+  "description": "File-only control: load the demo file without an HTTP request; background healthchecks remain.",
+  "action": "file_only",
+  "target": null,
+  "expected_incident_count": 0,
+  "expected_file_signal": true,
+  "expected_network_signal": false,
+  "origin": "controlled_live_lab",
+  "sends_credential_content": false
+}

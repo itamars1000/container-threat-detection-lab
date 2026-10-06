@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "scenario_succeeded": true,
+    "sensor_unchanged": true,
+    "same_sensor_start_and_reload": true,
+    "rules_unchanged": true,
+    "policy_unchanged": true,
+    "kernel_events_processed": true,
+    "no_kernel_drops_in_window": true,
+    "no_output_queue_drops_in_window": true,
+    "scenario_target_connect_received": true,
+    "single_control_connect_received": true,
+    "single_control_file_open_received": true,
+    "different_processes_same_container": true,
+    "scenario_order_verified": true
+  },
+  "valid": true,
+  "matched_rule_events": 4
+}

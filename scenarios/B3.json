@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "scenario_id": "B3",
+  "description": "File read in orders-api followed by network-only HTTP request from allowed-api to lab-sink.",
+  "action": "cross_container",
+  "file_service": "orders-api",
+  "network_service": "allowed-api",
+  "target": "lab-sink",
+  "expected_incident_count": 0,
+  "expected_file_signal": true,
+  "expected_network_signal": true,
+  "origin": "controlled_live_lab",
+  "sends_credential_content": false
+}

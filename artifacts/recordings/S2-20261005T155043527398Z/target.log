@@ -1,0 +1,16 @@
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:50:48] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:50:54] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:50:59] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:51:04] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:51:09] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:51:15] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:51:20] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:51:25] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:51:31] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:51:36] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:51:41] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:51:46] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:51:52] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:51:57] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 127.0.0.1 - - [05/Oct/2026 15:52:02] "GET /health HTTP/1.1" 200 -
+lab-sink-1  | 172.18.0.4 - - [05/Oct/2026 15:52:03] "GET /health HTTP/1.1" 200 -

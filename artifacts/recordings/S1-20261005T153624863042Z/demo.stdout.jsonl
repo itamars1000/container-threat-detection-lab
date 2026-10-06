@@ -1,0 +1,3 @@
+{"timestamp": "2026-10-05T15:36:27.375+00:00", "container_hostname": "1090c53f54e0", "event": "demo_file_read", "path": "/run/demo-secrets/credentials-demo.json"}
+{"timestamp": "2026-10-05T15:36:27.375+00:00", "container_hostname": "1090c53f54e0", "event": "http_request_start", "destination": "lab-sink", "port": 8080}
+{"timestamp": "2026-10-05T15:36:27.408+00:00", "container_hostname": "1090c53f54e0", "event": "http_response", "destination": "lab-sink", "status_code": 200, "response_service": "lab-sink"}

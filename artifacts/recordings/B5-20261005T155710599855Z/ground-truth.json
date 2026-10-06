@@ -1,0 +1,14 @@
+{
+  "scenario_id": "B5",
+  "description": "Unexpected connection first, then sensitive-file open in the same container.",
+  "steps": [
+    "network",
+    "file"
+  ],
+  "expected_incident_count": 0,
+  "schema_version": 1,
+  "origin": "controlled_live_lab",
+  "service": "orders-api",
+  "target": "lab-sink",
+  "sends_credential_content": false
+}

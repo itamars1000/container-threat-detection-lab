@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "scenario_id": "M1",
+  "description": "Predefined authorized maintenance simulation: file open then lab-sink from a distinct command.",
+  "action": "maintenance",
+  "target": "lab-sink",
+  "expected_incident_count": 1,
+  "expected_tuned_incident_count": 0,
+  "legitimate_activity": true,
+  "authorization_basis": "The exercise defines this specific maintenance action as authorized before recording. Command matching alone does not prove authorization.",
+  "origin": "controlled_live_lab",
+  "sends_credential_content": false
+}

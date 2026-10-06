@@ -1,0 +1,13 @@
+{
+  "scenario_id": "B4",
+  "description": "Unexpected connection only, without a sensitive-file open.",
+  "steps": [
+    "network"
+  ],
+  "expected_incident_count": 0,
+  "schema_version": 1,
+  "origin": "controlled_live_lab",
+  "service": "orders-api",
+  "target": "lab-sink",
+  "sends_credential_content": false
+}

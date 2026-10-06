@@ -1,0 +1,32 @@
+- rule: Lab demo file opened for reading
+  desc: Temporary observation rule for a successful read-capable open of the fake credential file.
+  condition: >
+    evt.type in (open, openat, openat2)
+    and evt.is_open_read=true
+    and fd.num>=0
+    and fd.name=/run/demo-secrets/credentials-demo.json
+    and container.id!=host
+  output: >
+    Demo file opened for reading | file=%fd.name evt_type=%evt.type evt_res=%evt.res
+    event_ns=%evt.rawtime process=%proc.name command=%proc.cmdline
+    parent=%proc.pname pid=%proc.pid uid=%user.uid
+    container_id=%container.id container_full_id=%container.full_id container_name=%container.name
+  priority: NOTICE
+  tags: [lab, filesystem]
+
+- rule: Lab outbound TCP connect attempt
+  desc: Temporary observation of container TCP connect attempts to non-loopback lab endpoints on port 8080.
+  condition: >
+    evt.type=connect
+    and fd.l4proto=tcp
+    and fd.sport=8080
+    and fd.sip!=127.0.0.1
+    and container.id!=host
+  output: >
+    Lab TCP connect attempt | evt_type=%evt.type evt_res=%evt.res raw_result=%evt.rawres
+    event_ns=%evt.rawtime client_ip=%fd.cip client_port=%fd.cport
+    server_ip=%fd.sip server_port=%fd.sport protocol=%fd.l4proto
+    process=%proc.name command=%proc.cmdline parent=%proc.pname pid=%proc.pid uid=%user.uid
+    container_id=%container.id container_full_id=%container.full_id container_name=%container.name
+  priority: NOTICE
+  tags: [lab, network]

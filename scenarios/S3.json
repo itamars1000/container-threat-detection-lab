@@ -1,0 +1,14 @@
+{
+  "scenario_id": "S3",
+  "description": "Sensitive-file open followed by an unexpected connection from a different process in the same container.",
+  "steps": [
+    "file",
+    "network"
+  ],
+  "expected_incident_count": 1,
+  "schema_version": 1,
+  "origin": "controlled_live_lab",
+  "service": "orders-api",
+  "target": "lab-sink",
+  "sends_credential_content": false
+}

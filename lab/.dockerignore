@@ -1,0 +1,3 @@
+demo-secrets/
+**/__pycache__/
+**/*.pyc

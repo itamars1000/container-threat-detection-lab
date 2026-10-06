@@ -1,0 +1,1 @@
+{"timestamp": "2026-10-05T15:57:15.081+00:00", "container_hostname": "1090c53f54e0", "event": "demo_file_read", "path": "/run/demo-secrets/credentials-demo.json", "mode": "file_only"}

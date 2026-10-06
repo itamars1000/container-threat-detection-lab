@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "scenario_id": "S1",
+  "description": "Controlled demo file read followed by HTTP GET to unexpected lab-sink.",
+  "target": "lab-sink",
+  "expected_incident_count": 1,
+  "expected_file_signal": true,
+  "expected_network_signal": true,
+  "origin": "controlled_live_lab",
+  "sends_credential_content": false
+}
