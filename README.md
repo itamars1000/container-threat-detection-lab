@@ -25,7 +25,7 @@ The Docker lab has orders-api (fake credential file), allowed-api (expected HTTP
 This path needs **no Docker, Falco, administrator privileges or cloud account**. It uses the immutable recordings included in the repository. Python 3.10 or newer is required; the recorded lab used Python 3.12. Use Linux/WSL for the commands below.
 
 ~~~bash
-git clone <repository-url> container-threat-detection-lab
+git clone https://github.com/itamars1000/container-threat-detection-lab.git
 cd container-threat-detection-lab
 python3 -m venv .venv
 . .venv/bin/activate
@@ -33,7 +33,7 @@ python -m pip install -r requirements.txt
 python scripts/demo.py
 ~~~
 
-On Ubuntu, install python3-venv first if the venv module is unavailable. Replace <repository-url> with this repository's clone URL.
+On Ubuntu, install python3-venv first if the venv module is unavailable. The clone command above downloads this repository.
 
 Expected last result: status "complete" and steps_passed 9. The demo writes artifacts/reports/demo/summary.json and per-step report.json/report.md files. Reports are regenerated locally and excluded from Git.
 
